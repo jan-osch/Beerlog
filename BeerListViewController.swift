@@ -12,11 +12,11 @@ import CoreData
 class BeerListViewController: UIViewController, UITableViewDataSource {
     
     var beers = [Beer]()
+    var categories = [Category]()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         fetchData()
         title = "Beers"
         beersTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -55,8 +55,7 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     
     func fetchData()    {
 
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedObjectContext = appDelegate.managedObjectContext
+        let managedObjectContext = CoreDataHelper.getManagedContext()
         
         let fetchRequest = NSFetchRequest(entityName: "Beer")
         

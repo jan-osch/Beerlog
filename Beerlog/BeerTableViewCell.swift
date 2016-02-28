@@ -12,7 +12,8 @@ class BeerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleTextLabel: UILabel!
     @IBOutlet weak var ratingImageView: UIImageView!
-    @IBOutlet weak var beerImageView: UIView!
+    @IBOutlet weak var beerImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,12 +28,10 @@ class BeerTableViewCell: UITableViewCell {
     func setBeer(beer:Beer){
         self.titleTextLabel.text = beer.title
         if beer.rating != nil{
-            self.ratingImageView.image = getImageForRating(beer.rating!.integerValue)
-        }        
-    }
-    
-    func getImageForRating(rating: Int) -> UIImage?{
-        let imageName = "\(rating)Stars"
-        return UIImage(named: imageName)
+            self.ratingImageView.image = ImageHelper.getImageForRating(beer.rating!.integerValue)
+        }
+        if beer.image != nil{
+            self.beerImageView.image = UIImage(data: beer.image!)
+        }
     }
 }

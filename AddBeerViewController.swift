@@ -9,32 +9,27 @@
 import UIKit
 import CoreData
 
-class AddBeerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddBeerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var ratingTextLabel: UILabel!
-    var categories = ["IPA", "Weizen", "Lager"]
-    var chosenCategory : String?
+    let imagePicker = UIImagePickerController()
+    
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var ratingStepper: UIStepper!
+    @IBOutlet weak var ratingImageView: UIImageView!
+    
+    @IBAction func stepperValueChanged(sender: UIStepper) {
+        ratingImageView.image = ImageHelper.getImageForRating(Int(sender.value))
+    }
+    
+    var categories = [Category]()
+    var chosenCategory : Category?
     
     func saveBeer() {
-        print("got saveBeer action")
-        print("Category that will be saved : \(chosenCategory)")
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        
-        let entity = NSEntityDescription.entityForName("Beer", inManagedObjectContext: managedContext)
-        let beer = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-        beer.setValue(titleTextField.text, forKey: "title")
-        beer.setValue(descriptionTextField.text, forKey: "story")
-        beer.setValue(5, forKey: "rating")
-        
-        do{
-            try managedContext.save()
+        var beerImageData: NSData?
+        if mainImageView.image != nil{
+            beerImageData = UIImageJPEGRepresentation(mainImageView.image!, 1)
         }
-        catch{
-            print("Could not save")
-        }
-        
+        BeerDao.saveBeer(titleTextField.text!, story: descriptionTextField.text!, rating: getValueOfRatingStepper(), category: self.chosenCategory!, imageData: beerImageData)
     }
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -43,13 +38,18 @@ class AddBeerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        self.ratingImageView.image = ImageHelper.getImageForRating(getValueOfRatingStepper())
+        imagePicker.delegate = self
+        categories = CategoryDao.getAllCategories()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getValueOfRatingStepper()->Int{
+        return Int(self.ratingStepper.value)
     }
     
     // MARK: - PickerView
@@ -67,17 +67,45 @@ class AddBeerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row]
+        return categories[row].name
     }
     
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if segue.identifier == "SaveBeer" {
             saveBeer()
         }
     }
     
+    // MARK: - UIImagePickerControllerDelegate Methods
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]){
+        var image = info[UIImagePickerControllerEditedImage] as? UIImage
+        if image == nil{
+            image = info[UIImagePickerControllerOriginalImage ] as? UIImage
+        }
+        mainImageView.contentMode = .ScaleAspectFit
+        mainImageView.image = image
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func takePhotoTouched(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .Camera
+            presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func loadImageButtonTapped(sender: AnyObject) {
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .PhotoLibrary
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
 }
