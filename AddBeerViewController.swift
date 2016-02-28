@@ -16,20 +16,24 @@ class AddBeerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var ratingStepper: UIStepper!
     @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var categoryPicker: UIPickerView!
     
     @IBAction func stepperValueChanged(sender: UIStepper) {
         ratingImageView.image = ImageHelper.getImageForRating(Int(sender.value))
     }
     
     var categories = [Category]()
-    var chosenCategory : Category?
     
     func saveBeer() {
         var beerImageData: NSData?
         if mainImageView.image != nil{
             beerImageData = UIImageJPEGRepresentation(mainImageView.image!, 1)
         }
-        BeerDao.saveBeer(titleTextField.text!, story: descriptionTextField.text!, rating: getValueOfRatingStepper(), category: self.chosenCategory!, imageData: beerImageData)
+        BeerDao.saveBeer(titleTextField.text!,
+            story: descriptionTextField.text!,
+            rating: getValueOfRatingStepper(),
+            category: getCategoryFromPicker(),
+            imageData: beerImageData)
     }
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -45,21 +49,20 @@ class AddBeerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getValueOfRatingStepper()->Int{
         return Int(self.ratingStepper.value)
     }
     
+    func getCategoryFromPicker() -> Category{
+        return categories[categoryPicker.selectedRowInComponent(0)]
+    }
+    
     // MARK: - PickerView
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.chosenCategory = categories[row]
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

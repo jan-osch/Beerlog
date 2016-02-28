@@ -30,14 +30,24 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var beersTableView: UITableView!
     
     // MARK: UITableViewDataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        print("Called number of sections")
+        return categories.count
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beers.count
+        return categories[section].beers!.count 
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories[section].name
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BeerCell")! as! BeerTableViewCell
-        cell.setBeer(beers[indexPath.row])
+        let beerSet = categories[indexPath.section].beers
+        let beerArray = (beerSet?.allObjects)! as NSArray
+        cell.setBeer(beerArray[indexPath.row] as! Beer)
         return cell
     }
     override func viewDidAppear(animated: Bool) {
@@ -54,16 +64,7 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     */
     
     func fetchData()    {
-
-        let managedObjectContext = CoreDataHelper.getManagedContext()
-        
-        let fetchRequest = NSFetchRequest(entityName: "Beer")
-        
-        do{
-            beers = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Beer]
-        } catch {
-            print("Could not fetch ")
-        }
+        categories = CategoryDao.getAllCategories()
         tableView.reloadData()
     }
     

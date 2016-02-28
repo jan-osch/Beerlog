@@ -243,6 +243,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryPicker" destination="m3p-ib-jns" id="3xs-EJ-2rU"/>
                         <outlet property="descriptionTextField" destination="sHD-nA-EAL" id="eQC-gK-4rM"/>
                         <outlet property="mainImageView" destination="fFl-a3-hfY" id="976-5g-KBn"/>
                         <outlet property="ratingImageView" destination="aFy-vT-ii3" id="PO6-PJ-exf"/>

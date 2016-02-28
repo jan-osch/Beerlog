@@ -20,7 +20,7 @@ class BeerDao{
         beer.setValue(story, forKey: "story")
         beer.setValue(rating, forKey: "rating")
         beer.setValue(category, forKey: "beerCategory")
-
+        
         if imageData != nil{
             beer.setValue(imageData, forKey: "image")
         }
@@ -34,5 +34,17 @@ class BeerDao{
         catch{
             print("Could not save")
         }
+    }
+    
+    static func getAllBeers()-> [Beer]{
+        let managedObjectContext = CoreDataHelper.getManagedContext()
+        
+        let fetchRequest = NSFetchRequest(entityName: "Beer")
+        do{
+            return try managedObjectContext.executeFetchRequest(fetchRequest) as! [Beer]
+        } catch {
+            print("Could not fetch ")
+        }
+        return [Beer]()
     }
 }

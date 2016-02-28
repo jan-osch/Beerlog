@@ -14,14 +14,29 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper_start" translatesAutoresizingMaskIntoConstraints="NO" id="Liv-L1-SmD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Liv-L1-SmD" secondAttribute="trailing" id="9Qa-kC-OR3"/>
+                            <constraint firstItem="Liv-L1-SmD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="F0j-wL-U6g"/>
+                            <constraint firstItem="Liv-L1-SmD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="a8U-99-6ds"/>
+                            <constraint firstItem="Liv-L1-SmD" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="znb-nc-Vjd"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="wallpaper_start" width="716" height="911"/>
+    </resources>
 </document>
