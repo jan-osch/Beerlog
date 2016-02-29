@@ -45,24 +45,32 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BeerCell")! as! BeerTableViewCell
-        let beerSet = categories[indexPath.section].beers
-        let beerArray = (beerSet?.allObjects)! as NSArray
-        cell.setBeer(beerArray[indexPath.row] as! Beer)
+        cell.setBeer(getBeerByIndexPath(indexPath))
         return cell
     }
     override func viewDidAppear(animated: Bool) {
         fetchData()
     }
-    /*
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    func getBeerByIndexPath(indexPath: NSIndexPath) -> Beer{
+        let beerSet = categories[indexPath.section].beers
+        let beerArray = (beerSet?.allObjects)! as NSArray
+        return beerArray[indexPath.row] as! Beer
     }
-    */
     
+    // MARK: - Segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showBeerDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let beer  = getBeerByIndexPath(indexPath)
+                let controller = segue.destinationViewController as! BeerDetailTableTableViewController
+                controller.detailBeer = beer
+            }
+        }
+    }
+
+    // MARK: - CoreData
+
     func fetchData()    {
         categories = CategoryDao.getAllCategories()
         tableView.reloadData()

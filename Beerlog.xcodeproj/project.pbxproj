@@ -18,6 +18,8 @@
 		2495AE411C835F0200E793F2 /* CategoryDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE401C835F0200E793F2 /* CategoryDao.swift */; };
 		2495AE431C83643400E793F2 /* BeerDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE421C83643400E793F2 /* BeerDao.swift */; };
 		2495AE451C83907B00E793F2 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE441C83907B00E793F2 /* Category+CoreDataProperties.swift */; };
+		2495AE491C84DE1D00E793F2 /* BeerDetailTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE481C84DE1D00E793F2 /* BeerDetailTableTableViewController.swift */; };
+		2495AE4B1C84ECD200E793F2 /* AddBeerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE4A1C84ECD200E793F2 /* AddBeerTableViewController.swift */; };
 		24F6CEE01C7E47FC00CA972B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6CEDF1C7E47FC00CA972B /* AppDelegate.swift */; };
 		24F6CEE21C7E47FC00CA972B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6CEE11C7E47FC00CA972B /* ViewController.swift */; };
 		24F6CEE51C7E47FC00CA972B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F6CEE31C7E47FC00CA972B /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		2495AE401C835F0200E793F2 /* CategoryDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDao.swift; sourceTree = "<group>"; };
 		2495AE421C83643400E793F2 /* BeerDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDao.swift; sourceTree = "<group>"; };
 		2495AE441C83907B00E793F2 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2495AE481C84DE1D00E793F2 /* BeerDetailTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDetailTableTableViewController.swift; sourceTree = "<group>"; };
+		2495AE4A1C84ECD200E793F2 /* AddBeerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeerTableViewController.swift; sourceTree = "<group>"; };
 		24F6CEDC1C7E47FC00CA972B /* Beerlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beerlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F6CEDF1C7E47FC00CA972B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F6CEE11C7E47FC00CA972B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,10 +68,12 @@
 		2495AE2F1C8229D500E793F2 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2495AE481C84DE1D00E793F2 /* BeerDetailTableTableViewController.swift */,
 				2495AE3E1C83555F00E793F2 /* CategoriesTableViewController.swift */,
 				2495AE2D1C8229C400E793F2 /* AddBeerViewController.swift */,
 				2495AE2B1C821C8800E793F2 /* BeerListViewController.swift */,
 				24F6CEE11C7E47FC00CA972B /* ViewController.swift */,
+				2495AE4A1C84ECD200E793F2 /* AddBeerTableViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -223,6 +229,8 @@
 				2495AE2E1C8229C400E793F2 /* AddBeerViewController.swift in Sources */,
 				24F6CEE01C7E47FC00CA972B /* AppDelegate.swift in Sources */,
 				2495AE451C83907B00E793F2 /* Category+CoreDataProperties.swift in Sources */,
+				2495AE491C84DE1D00E793F2 /* BeerDetailTableTableViewController.swift in Sources */,
+				2495AE4B1C84ECD200E793F2 /* AddBeerTableViewController.swift in Sources */,
 				2495AE3B1C83204500E793F2 /* CoreDataHelper.swift in Sources */,
 				24F6CEE81C7E47FC00CA972B /* Beerlog.xcdatamodeld in Sources */,
 				24F6CEF71C7E486E00CA972B /* Beer.swift in Sources */,
