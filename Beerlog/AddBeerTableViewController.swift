@@ -77,6 +77,7 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SaveBeer" {
+            print("Save beer called")
             saveBeer()
         }
     }
@@ -99,6 +100,7 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
     }
     
     @IBAction func takePhotoTouched(sender: AnyObject) {
+        print("takePhotoToucher")
         if UIImagePickerController.isSourceTypeAvailable(.Camera){
             imagePicker.allowsEditing = true
             imagePicker.sourceType = .Camera

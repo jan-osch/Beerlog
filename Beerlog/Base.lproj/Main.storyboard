@@ -148,132 +148,6 @@
             <point key="canvasLocation" x="1419.5" y="1274.5"/>
         </scene>
         <!--Add Beer-->
-        <scene sceneID="MaR-2h-e4X">
-            <objects>
-                <viewController id="neT-xg-47J" customClass="AddBeerViewController" customModule="Beerlog" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PgT-Ja-obc"/>
-                        <viewControllerLayoutGuide type="bottom" id="gnN-M5-jVg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6wW-1B-LNq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="foX-00-NTD">
-                                <rect key="frame" x="24" y="72" width="552" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sHD-nA-EAL">
-                                <rect key="frame" x="24" y="110" width="552" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3p-ib-jns">
-                                <rect key="frame" x="112" y="388" width="375" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="145" id="jKk-9W-ABH"/>
-                                    <constraint firstAttribute="width" constant="375" id="knu-NG-f8C"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="neT-xg-47J" id="B1B-AS-CDk"/>
-                                    <outlet property="delegate" destination="neT-xg-47J" id="fu7-wg-wBj"/>
-                                </connections>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Choose category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKh-Vc-OYn">
-                                <rect key="frame" x="119" y="354" width="136" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-vT-ii3">
-                                <rect key="frame" x="67" y="568" width="240" height="49"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFl-a3-hfY">
-                                <rect key="frame" x="99" y="148" width="176" height="164"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9R9-sC-d1f">
-                                <rect key="frame" x="24" y="316" width="97" height="30"/>
-                                <state key="normal" title="Choose Photo"/>
-                                <connections>
-                                    <action selector="loadImageButtonTapped:" destination="neT-xg-47J" eventType="touchUpInside" id="7cO-lm-Olo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPS-o9-BOe">
-                                <rect key="frame" x="221" y="310" width="134" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="t6c-up-P0O"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Take Photo">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePhotoTouched:" destination="neT-xg-47J" eventType="touchUpInside" id="8eL-nB-U73"/>
-                                </connections>
-                            </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="geq-xB-rLE">
-                                <rect key="frame" x="175" y="558" width="94" height="29"/>
-                                <connections>
-                                    <action selector="stepperValueChanged:" destination="neT-xg-47J" eventType="valueChanged" id="moY-Pa-bHm"/>
-                                </connections>
-                            </stepper>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="sHD-nA-EAL" firstAttribute="centerX" secondItem="6wW-1B-LNq" secondAttribute="centerX" id="2G9-5Z-YUl"/>
-                            <constraint firstItem="fFl-a3-hfY" firstAttribute="top" secondItem="sHD-nA-EAL" secondAttribute="bottom" constant="8" symbolic="YES" id="2NO-yY-b1e"/>
-                            <constraint firstItem="m3p-ib-jns" firstAttribute="centerX" secondItem="fFl-a3-hfY" secondAttribute="centerX" id="5kA-BO-psB"/>
-                            <constraint firstItem="m3p-ib-jns" firstAttribute="centerX" secondItem="geq-xB-rLE" secondAttribute="centerX" id="7EC-th-DXF"/>
-                            <constraint firstItem="m3p-ib-jns" firstAttribute="centerX" secondItem="QKh-Vc-OYn" secondAttribute="centerX" id="Cbz-QB-1mc"/>
-                            <constraint firstItem="sHD-nA-EAL" firstAttribute="trailing" secondItem="mPS-o9-BOe" secondAttribute="trailing" id="EyV-Ht-Tgq"/>
-                            <constraint firstItem="QKh-Vc-OYn" firstAttribute="centerX" secondItem="6wW-1B-LNq" secondAttribute="centerX" id="Hoz-Za-jCG"/>
-                            <constraint firstItem="gnN-M5-jVg" firstAttribute="top" secondItem="geq-xB-rLE" secondAttribute="bottom" constant="13" id="HsG-0F-ejB"/>
-                            <constraint firstItem="foX-00-NTD" firstAttribute="centerX" secondItem="fFl-a3-hfY" secondAttribute="centerX" id="LVK-Nc-jKy"/>
-                            <constraint firstItem="foX-00-NTD" firstAttribute="leading" secondItem="sHD-nA-EAL" secondAttribute="leading" id="OGi-9R-6Wn"/>
-                            <constraint firstItem="geq-xB-rLE" firstAttribute="top" secondItem="aFy-vT-ii3" secondAttribute="bottom" constant="46" id="QGg-B9-noy"/>
-                            <constraint firstItem="foX-00-NTD" firstAttribute="leading" secondItem="6wW-1B-LNq" secondAttribute="leadingMargin" constant="4" id="VFD-Qc-YeD"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="9R9-sC-d1f" secondAttribute="leading" id="VO0-N5-KGc"/>
-                            <constraint firstItem="QKh-Vc-OYn" firstAttribute="top" secondItem="fFl-a3-hfY" secondAttribute="bottom" constant="42" id="YSb-by-qqg"/>
-                            <constraint firstItem="sHD-nA-EAL" firstAttribute="leading" secondItem="9R9-sC-d1f" secondAttribute="leading" id="Zbt-TZ-Sp3"/>
-                            <constraint firstItem="foX-00-NTD" firstAttribute="top" secondItem="PgT-Ja-obc" secondAttribute="bottom" constant="8" symbolic="YES" id="e8s-at-Ggf"/>
-                            <constraint firstItem="sHD-nA-EAL" firstAttribute="top" secondItem="foX-00-NTD" secondAttribute="bottom" constant="8" symbolic="YES" id="gFr-Ij-KZe"/>
-                            <constraint firstItem="fFl-a3-hfY" firstAttribute="centerX" secondItem="6wW-1B-LNq" secondAttribute="centerX" id="hEl-AT-Iwr"/>
-                            <constraint firstItem="mPS-o9-BOe" firstAttribute="top" secondItem="fFl-a3-hfY" secondAttribute="bottom" constant="2" id="j7y-bv-2wf"/>
-                            <constraint firstItem="geq-xB-rLE" firstAttribute="centerX" secondItem="6wW-1B-LNq" secondAttribute="centerX" id="ozG-yd-3fv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mPS-o9-BOe" secondAttribute="trailing" id="plV-30-3i8"/>
-                            <constraint firstItem="9R9-sC-d1f" firstAttribute="top" secondItem="fFl-a3-hfY" secondAttribute="bottom" constant="4" id="tV6-xp-Bof"/>
-                            <constraint firstItem="m3p-ib-jns" firstAttribute="centerX" secondItem="6wW-1B-LNq" secondAttribute="centerX" id="tw5-0O-OG1"/>
-                            <constraint firstItem="sHD-nA-EAL" firstAttribute="centerX" secondItem="fFl-a3-hfY" secondAttribute="centerX" id="xYp-8o-rHH"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add Beer" id="5sj-u9-jzd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BwE-g5-lva">
-                            <connections>
-                                <segue destination="BZR-7m-Ip4" kind="unwind" unwindAction="cancelToBeersViewController:" id="rdJ-mx-Zpd"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="flc-3I-t4f">
-                            <connections>
-                                <segue destination="BZR-7m-Ip4" kind="unwind" identifier="SaveBeer" unwindAction="saveBeer:" id="qWG-Wt-lAN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="categoryPicker" destination="m3p-ib-jns" id="3xs-EJ-2rU"/>
-                        <outlet property="descriptionTextField" destination="sHD-nA-EAL" id="eQC-gK-4rM"/>
-                        <outlet property="mainImageView" destination="fFl-a3-hfY" id="976-5g-KBn"/>
-                        <outlet property="ratingImageView" destination="aFy-vT-ii3" id="PO6-PJ-exf"/>
-                        <outlet property="ratingStepper" destination="geq-xB-rLE" id="nXn-BT-5QR"/>
-                        <outlet property="titleTextField" destination="foX-00-NTD" id="j82-fW-XGD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G6l-5a-mWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="BZR-7m-Ip4" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2608" y="2533"/>
-        </scene>
-        <!--Add Beer-->
         <scene sceneID="JcO-Yw-CgC">
             <objects>
                 <tableViewController id="ALR-O3-l7i" customClass="AddBeerTableViewController" customModule="Beerlog" customModuleProvider="target" sceneMemberID="viewController">
@@ -323,14 +197,14 @@
                                                     <rect key="frame" x="290" y="8" width="77" height="30"/>
                                                     <state key="normal" title="Take Photo"/>
                                                     <connections>
-                                                        <action selector="takePhotoTouched:" destination="ALR-O3-l7i" eventType="touchUpOutside" id="yyq-Qe-XDu"/>
+                                                        <action selector="takePhotoTouched:" destination="ALR-O3-l7i" eventType="touchUpInside" id="enK-fx-uff"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-so-8gs">
                                                     <rect key="frame" x="8" y="8" width="97" height="30"/>
                                                     <state key="normal" title="Choose Photo"/>
                                                     <connections>
-                                                        <action selector="loadImageButtonTapped:" destination="ALR-O3-l7i" eventType="touchUpOutside" id="yb4-oh-2kZ"/>
+                                                        <action selector="loadImageButtonTapped:" destination="ALR-O3-l7i" eventType="touchUpInside" id="5GJ-GE-b8J"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -363,7 +237,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8w-ih-kIC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="375" height="103.5"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="ALR-O3-l7i" id="4J1-PY-b7q"/>
                                                         <outlet property="delegate" destination="ALR-O3-l7i" id="5P6-M2-44O"/>
@@ -398,8 +272,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Beer" id="1ra-2a-Yjt">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PLp-0n-YJG"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="fX8-Yn-9vc"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PLp-0n-YJG">
+                            <connections>
+                                <segue destination="osQ-cH-kpl" kind="unwind" unwindAction="cancelToBeersViewController:" id="g0p-5A-ByU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="fX8-Yn-9vc">
+                            <connections>
+                                <segue destination="osQ-cH-kpl" kind="unwind" identifier="SaveBeer" unwindAction="saveBeer:" id="z5M-Y9-vPS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryPicker" destination="Q8w-ih-kIC" id="sbB-yT-Pgj"/>
@@ -411,6 +293,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0U-2I-nwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="osQ-cH-kpl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2642.5" y="1709.5"/>
         </scene>
@@ -494,7 +377,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQd-s7-xId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2001.5" y="865.5"/>
+            <point key="canvasLocation" x="1497.5" y="2257.5"/>
         </scene>
         <!--Beer Detail Table Table View Controller-->
         <scene sceneID="9K4-hk-2DV">
@@ -657,7 +540,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4O-fx-uSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2572.5" y="865.5"/>
+            <point key="canvasLocation" x="1996.5" y="849.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yF9-0v-sWD">
