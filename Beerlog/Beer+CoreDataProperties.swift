@@ -2,7 +2,7 @@
 //  Beer+CoreDataProperties.swift
 //  Beerlog
 //
-//  Created by Janusz Grzesik on 28.02.2016.
+//  Created by Janusz Grzesik on 01.03.2016.
 //  Copyright © 2016 jg. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,10 +14,12 @@ import CoreData
 
 extension Beer {
 
-    @NSManaged var title: String?
-    @NSManaged var story: String?
-    @NSManaged var rating: NSDecimalNumber?
     @NSManaged var image: NSData?
+    @NSManaged var rating: NSDecimalNumber?
+    @NSManaged var story: String?
+    @NSManaged var title: String?
+    @NSManaged var latitude: NSNumber?
+    @NSManaged var longitude: NSNumber?
     @NSManaged var beerCategory: Category?
 
 }
