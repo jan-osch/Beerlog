@@ -71,7 +71,7 @@
         <!--Beer List View Controller-->
         <scene sceneID="I7H-L1-AMC">
             <objects>
-                <viewController id="eKi-Pg-ak7" customClass="BeerListViewController" customModule="Beerlog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="eKi-Pg-ak7" customClass="BeerListViewController" customModule="Beerlog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D6B-m9-DXr"/>
                         <viewControllerLayoutGuide type="bottom" id="Zqo-Jj-HdR"/>
@@ -80,35 +80,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="beB-rh-M7r">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="beB-rh-M7r">
+                                <rect key="frame" x="0.0" y="64" width="375" height="583"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BeerCell" rowHeight="80" id="APV-xV-dAU" customClass="BeerTableViewCell" customModule="Beerlog" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BeerCell" rowHeight="84" id="APV-xV-dAU" customClass="BeerTableViewCell" customModule="Beerlog" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APV-xV-dAU" id="Xwx-1g-K1H">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2ex-6B-mdn">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2ex-6B-mdn">
                                                     <rect key="frame" x="100" y="4" width="181" height="71"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-Ib-Mwn">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-Ib-Mwn">
                                                             <rect key="frame" x="0.0" y="0.0" width="34" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="SXL-ul-Kl3"/>
+                                                                <constraint firstAttribute="width" constant="34" id="msb-lP-mn4"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-Lh-Daq">
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-Lh-Daq">
                                                             <rect key="frame" x="0.0" y="21" width="181" height="50"/>
                                                         </imageView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="aLp-Lh-Daq" secondAttribute="trailing" id="T0J-ai-38R"/>
+                                                    </constraints>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l22-jH-bWw">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l22-jH-bWw">
                                                     <rect key="frame" x="8" y="4" width="84" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="tOh-2n-axs"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2ex-6B-mdn" secondAttribute="trailing" constant="53" id="9mg-O9-Rgg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2ex-6B-mdn" secondAttribute="bottom" constant="0.5" id="CrJ-Xz-QlJ"/>
+                                                <constraint firstItem="2ex-6B-mdn" firstAttribute="leading" secondItem="l22-jH-bWw" secondAttribute="trailing" constant="8" symbolic="YES" id="Dlq-DV-AVe"/>
+                                                <constraint firstItem="l22-jH-bWw" firstAttribute="leading" secondItem="Xwx-1g-K1H" secondAttribute="leadingMargin" id="Mj7-QB-RO1"/>
+                                                <constraint firstItem="l22-jH-bWw" firstAttribute="centerY" secondItem="Xwx-1g-K1H" secondAttribute="centerY" id="VyF-h4-F3c"/>
+                                                <constraint firstItem="l22-jH-bWw" firstAttribute="top" secondItem="Xwx-1g-K1H" secondAttribute="topMargin" constant="-4" id="Xzh-26-K4V"/>
+                                                <constraint firstItem="l22-jH-bWw" firstAttribute="top" secondItem="2ex-6B-mdn" secondAttribute="top" id="uFu-9J-C2R"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="beerImageView" destination="l22-jH-bWw" id="MJB-ND-ZcA"/>
@@ -124,6 +143,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="beB-rh-M7r" firstAttribute="leading" secondItem="3UM-FA-weS" secondAttribute="leading" id="MXH-ix-wGO"/>
+                            <constraint firstItem="beB-rh-M7r" firstAttribute="top" secondItem="D6B-m9-DXr" secondAttribute="bottom" id="XH8-1I-3Qh"/>
+                            <constraint firstAttribute="bottom" secondItem="beB-rh-M7r" secondAttribute="bottom" constant="20" symbolic="YES" id="mYf-pL-zBx"/>
+                            <constraint firstAttribute="trailing" secondItem="beB-rh-M7r" secondAttribute="trailing" id="sde-Dk-vh7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ppO-Ui-mGw">
                         <barButtonItem key="leftBarButtonItem" title="Categories" id="Qwj-gS-U1d">
@@ -527,7 +552,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="oOd-9U-Mu1">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="qei-oc-zto"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="qei-oc-zto">
+                            <connections>
+                                <segue destination="xIX-Rv-J3G" kind="presentation" identifier="editBeerSegue" id="Y4N-Iw-SoH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -540,7 +569,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4O-fx-uSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996.5" y="849.5"/>
+            <point key="canvasLocation" x="2001.5" y="817.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yF9-0v-sWD">
@@ -565,4 +594,7 @@
         <image name="BeerIcon" width="30" height="30"/>
         <image name="BeerMap" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UyQ-SS-P3d"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -43,4 +43,15 @@ class BeerDetailTableTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editBeerSegue" {
+            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! AddBeerTableViewController
+            controller.previousBeer = detailBeer
+        }
+    }
+    
+    
 }

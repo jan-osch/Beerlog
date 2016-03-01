@@ -47,4 +47,20 @@ class BeerDao{
         }
         return [Beer]()
     }
+    
+    static func updateBeer(beer:Beer, previousCategory:Category){
+        let managedContext = CoreDataHelper.getManagedContext()
+        if previousCategory != beer.beerCategory{
+            let beers = previousCategory.mutableSetValueForKey("beers")
+            beers.removeObject(beer)
+            let newBeers = beer.beerCategory!.mutableSetValueForKey("beers")
+            newBeers.addObject(beer)
+        }
+        do{
+            try managedContext.save()
+        }
+        catch{
+            print("Could not save")
+        }
+    }
 }
