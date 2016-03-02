@@ -14,14 +14,16 @@ class BeerAnnotation: NSObject, MKAnnotation {
     let title: String?
     let story: String
     let coordinate: CLLocationCoordinate2D
-    let image: UIImage?
+    var image: UIImage?
     let beer: Beer?
     
     init(beer: Beer) {
         self.title = beer.title!
         self.story = beer.story!
         self.coordinate = CLLocationCoordinate2D(latitude: beer.latitude! as Double, longitude: beer.longitude! as Double)
-        self.image = UIImage(data: beer.image!)
+        if let beerImage = beer.image {
+            self.image = UIImage(data: beerImage)
+        }
         self.beer = beer
         super.init()
     }

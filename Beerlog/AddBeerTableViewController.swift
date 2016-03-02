@@ -67,7 +67,9 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
     func loadDataFromPreviousBeer(){
         if previousBeer != nil{
             if let mainImageView = mainImageView, titleTextField = titleTextField, descriptionTextField = descriptionTextField, ratingImageView = ratingImageView {
-                mainImageView.image = UIImage(data:(previousBeer?.image)!)
+                if let beerImage =  previousBeer?.image{
+                    mainImageView.image = UIImage(data: beerImage)
+                }
                 titleTextField.text = previousBeer?.title
                 descriptionTextField.text = previousBeer?.story
                 ratingImageView.image = ImageHelper.getImageForRating(Int((previousBeer?.rating)!))

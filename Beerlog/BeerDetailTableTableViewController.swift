@@ -26,19 +26,21 @@ class BeerDetailTableTableViewController: UITableViewController {
         if let detailBeer = detailBeer {
             if let titleLabel = titleLabel, mainImageView = mainImageView {
                 titleLabel.text = detailBeer.title
-                mainImageView.image = UIImage(data: detailBeer.image!)
+                if let beerMainImage = detailBeer.image{
+                    mainImageView.image = UIImage(data: beerMainImage)
+                }
                 ratingImageView.image = ImageHelper.getImageForRating(Int(detailBeer.rating!))
                 categoryLabel.text = detailBeer.beerCategory?.name
                 storyTextView.text = detailBeer.story
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -20,19 +20,16 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         fetchData()
         title = "Beers"
-        beersTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
         fetchData()
     }
-    
-    @IBOutlet weak var beersTableView: UITableView!
     
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -62,7 +59,7 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     }
     
     func confirmDelete(beerToDelete: Beer) {
-        let alert = UIAlertController(title: "Delete beer", message: "Are you sure you want to permanently delete \(beerToDelete.title)?", preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: "Delete beer", message: "Are you sure you want to permanently delete \(beerToDelete.title!)?", preferredStyle: .ActionSheet)
         
         let DeleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: handleDeleteBeer)
         let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: cancelDelete)

@@ -19,6 +19,10 @@ class MapViewController: UIViewController {
         displayBeerData()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        displayBeerData()
+    }
+    
     var detailBeer: Beer? {
         didSet{
             print("detailBeer has been set")
