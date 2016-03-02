@@ -22,6 +22,7 @@
 		2495AE511C86394F00E793F2 /* Beer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE501C86394F00E793F2 /* Beer+CoreDataProperties.swift */; };
 		2495AE531C86398A00E793F2 /* BeerMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE521C86398A00E793F2 /* BeerMapAnnotation.swift */; };
 		2495AE581C863E2F00E793F2 /* BeerMapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495AE571C863E2F00E793F2 /* BeerMapViewControllerExtension.swift */; };
+		24A42D361C8659D300A259E9 /* LocationSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A42D351C8659D300A259E9 /* LocationSearchController.swift */; };
 		24F6CEE01C7E47FC00CA972B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6CEDF1C7E47FC00CA972B /* AppDelegate.swift */; };
 		24F6CEE51C7E47FC00CA972B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F6CEE31C7E47FC00CA972B /* Main.storyboard */; };
 		24F6CEE81C7E47FC00CA972B /* Beerlog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F6CEE61C7E47FC00CA972B /* Beerlog.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 		2495AE501C86394F00E793F2 /* Beer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2495AE521C86398A00E793F2 /* BeerMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerMapAnnotation.swift; sourceTree = "<group>"; };
 		2495AE571C863E2F00E793F2 /* BeerMapViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerMapViewControllerExtension.swift; sourceTree = "<group>"; };
+		24A42D351C8659D300A259E9 /* LocationSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchController.swift; sourceTree = "<group>"; };
 		24F6CEDC1C7E47FC00CA972B /* Beerlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beerlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F6CEDF1C7E47FC00CA972B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F6CEE41C7E47FC00CA972B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				2495AE3E1C83555F00E793F2 /* CategoriesTableViewController.swift */,
 				2495AE2B1C821C8800E793F2 /* BeerListViewController.swift */,
 				2495AE4A1C84ECD200E793F2 /* AddBeerTableViewController.swift */,
+				24A42D351C8659D300A259E9 /* LocationSearchController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				2495AE3B1C83204500E793F2 /* CoreDataHelper.swift in Sources */,
 				2495AE581C863E2F00E793F2 /* BeerMapViewControllerExtension.swift in Sources */,
 				24F6CEE81C7E47FC00CA972B /* Beerlog.xcdatamodeld in Sources */,
+				24A42D361C8659D300A259E9 /* LocationSearchController.swift in Sources */,
 				24F6CEF71C7E486E00CA972B /* Beer.swift in Sources */,
 				2495AE281C82185C00E793F2 /* Category.swift in Sources */,
 				2495AE321C823A6300E793F2 /* BeerTableViewCell.swift in Sources */,

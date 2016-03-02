@@ -12,23 +12,16 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-//        centerMapOnLocation(initialLocation)
-        
         mapView.delegate = self
         displayBeerData()
     }
     
     var detailBeer: Beer? {
         didSet{
-            if let beer = detailBeer{
-                clearMap()
-                mapView.addAnnotation(BeerAnnotation(beer:beer))
-                mapView.showAnnotations(mapView.annotations, animated: true)
-            }
+            print("detailBeer has been set")
         }
     }
     
@@ -46,20 +39,29 @@ class MapViewController: UIViewController {
     }
     
     func displayBeerData(){
-        let allBeers:[Beer]  = BeerDao.getAllBeers()
-        let locationBeers = prepareBeerAnnotations(allBeers)
-        mapView.addAnnotations(locationBeers)
+        if let beerToDisplay = self.detailBeer {
+            clearMap()
+            mapView?.addAnnotation(BeerAnnotation(beer: beerToDisplay))
+            
+        }else{
+            let allBeers:[Beer]  = BeerDao.getAllBeers()
+            let locationBeers = prepareBeerAnnotations(allBeers)
+            mapView.addAnnotations(locationBeers)
+        }
+        mapView?.showAnnotations(mapView.annotations, animated: true)
     }
     
     func prepareBeerAnnotations(allBeers:[Beer])->[BeerAnnotation]{
         var locationBeers = [BeerAnnotation]()
         for beer in allBeers{
-            beer.latitude = 21.283921
-            beer.longitude = -11.283921
-            locationBeers.append(BeerAnnotation(beer: beer))
+            if beer.longitude != nil && beer.latitude != nil {
+                locationBeers.append(BeerAnnotation(beer: beer))
+            }
         }
         return locationBeers
     }
+    
+    // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowSegueIdentifier"{

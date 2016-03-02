@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 
 class BeerDao{
-    static func saveBeer(title: String, story: String, rating: Int, category: Category, imageData: NSData?){
+    static func saveBeer(title: String, story: String, rating: Int, category: Category, longitude: Double?, latitude: Double?, imageData: NSData?){
         let managedContext = CoreDataHelper.getManagedContext()
         let entity = NSEntityDescription.entityForName("Beer", inManagedObjectContext: managedContext)
         let beer = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
@@ -20,6 +20,13 @@ class BeerDao{
         beer.setValue(story, forKey: "story")
         beer.setValue(rating, forKey: "rating")
         beer.setValue(category, forKey: "beerCategory")
+        
+        if let longitude = longitude {
+            beer.setValue(longitude, forKey: "longitude")
+        }
+        if let latitude = latitude {
+            beer.setValue(latitude, forKey: "latitude")
+        }
         
         if imageData != nil{
             beer.setValue(imageData, forKey: "image")

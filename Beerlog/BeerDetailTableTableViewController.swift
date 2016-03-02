@@ -41,7 +41,6 @@ class BeerDetailTableTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Segues
@@ -50,6 +49,10 @@ class BeerDetailTableTableViewController: UITableViewController {
         if segue.identifier == "editBeerSegue" {
             let controller = (segue.destinationViewController as! UINavigationController).topViewController as! AddBeerTableViewController
             controller.previousBeer = detailBeer
+        } else if segue.identifier == "GoToLocation" {
+            if let controller = segue.destinationViewController as? MapViewController {
+                controller.detailBeer = self.detailBeer
+            }
         }
     }
     

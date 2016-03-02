@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -17,6 +18,8 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
             loadDataFromPreviousBeer()
         }
     }
+    
+    var coordinate: CLLocationCoordinate2D?
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var ratingStepper: UIStepper!
@@ -39,10 +42,16 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
                 story: descriptionTextField.text!,
                 rating: getValueOfRatingStepper(),
                 category: getCategoryFromPicker(),
+                longitude : coordinate?.longitude,
+                latitude: coordinate?.latitude,
                 imageData: beerImageData)
         }else{
             let previousCategory = previousBeer?.beerCategory
             readDataFromOutlets()
+            if coordinate != nil {
+                previousBeer?.longitude = coordinate?.longitude
+                previousBeer?.latitude = coordinate?.latitude
+            }
             BeerDao.updateBeer(previousBeer!, previousCategory: previousCategory!)
         }
     }
@@ -146,6 +155,9 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func saveLocation(segue:UIStoryboardSegue) {
     }
     
 }
