@@ -55,6 +55,20 @@ class BeerDao{
         return [Beer]()
     }
     
+    static func deleteBeer(beer:Beer){
+        let managedContext = CoreDataHelper.getManagedContext()
+        let category = beer.beerCategory!.mutableSetValueForKey("beers")
+        category.removeObject(beer)
+        managedContext.deleteObject(beer)
+    
+        do{
+            try managedContext.save()
+        }
+        catch{
+            print("Could not delete")
+        }
+    }
+    
     static func updateBeer(beer:Beer, previousCategory:Category){
         let managedContext = CoreDataHelper.getManagedContext()
         if previousCategory != beer.beerCategory{

@@ -13,6 +13,7 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     
     var beers = [Beer]()
     var categories = [Category]()
+    var beerToDeleteIndexPath: NSIndexPath?
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -25,6 +26,10 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        fetchData()
     }
     
     @IBOutlet weak var beersTableView: UITableView!
@@ -47,8 +52,42 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
         cell.setBeer(getBeerByIndexPath(indexPath))
         return cell
     }
-    override func viewDidAppear(animated: Bool) {
-        fetchData()
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            beerToDeleteIndexPath = indexPath
+            let beerToDelete = getBeerByIndexPath(indexPath)
+            confirmDelete(beerToDelete)
+        }
+    }
+    
+    func confirmDelete(beerToDelete: Beer) {
+        let alert = UIAlertController(title: "Delete beer", message: "Are you sure you want to permanently delete \(beerToDelete.title)?", preferredStyle: .ActionSheet)
+        
+        let DeleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: handleDeleteBeer)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: cancelDelete)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func handleDeleteBeer(alertAction: UIAlertAction!) -> Void {
+        if let indexPath = beerToDeleteIndexPath {
+            tableView.beginUpdates()
+            BeerDao.deleteBeer(getBeerByIndexPath(beerToDeleteIndexPath!))
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            beerToDeleteIndexPath = nil
+            tableView.endUpdates()
+        }
+    }
+    
+    func cancelDelete(alertAction: UIAlertAction!) {
+        beerToDeleteIndexPath = nil
     }
     
     func getBeerByIndexPath(indexPath: NSIndexPath) -> Beer{
