@@ -57,6 +57,4 @@ class BeerDetailTableTableViewController: UITableViewController {
             }
         }
     }
-    
-    
 }

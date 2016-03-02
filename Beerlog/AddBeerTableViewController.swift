@@ -73,7 +73,8 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
                 titleTextField.text = previousBeer?.title
                 descriptionTextField.text = previousBeer?.story
                 ratingImageView.image = ImageHelper.getImageForRating(Int((previousBeer?.rating)!))
-                
+                self.ratingStepper.value = Double((previousBeer?.rating)!)
+                categoryPicker.selectRow(self.categories.indexOf((previousBeer?.beerCategory)!)!, inComponent: 0, animated: false)
             }
         }
     }
@@ -96,8 +97,8 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
         super.viewDidLoad()
         self.ratingImageView.image = ImageHelper.getImageForRating(getValueOfRatingStepper())
         imagePicker.delegate = self
-        loadDataFromPreviousBeer()
         categories = CategoryDao.getAllCategories()
+        loadDataFromPreviousBeer()
     }
     
     override func didReceiveMemoryWarning() {
