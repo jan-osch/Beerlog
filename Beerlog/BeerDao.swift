@@ -11,6 +11,7 @@ import CoreData
 import UIKit
 
 class BeerDao{
+    
     static func saveBeer(title: String, story: String, rating: Int, category: Category, longitude: Double?, latitude: Double?, imageData: NSData?){
         let managedContext = CoreDataHelper.getManagedContext()
         let entity = NSEntityDescription.entityForName("Beer", inManagedObjectContext: managedContext)

@@ -57,6 +57,7 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
             confirmDelete(beerToDelete)
         }
     }
+    // MARK: - Deleting row
     
     func confirmDelete(beerToDelete: Beer) {
         let alert = UIAlertController(title: "Delete beer", message: "Are you sure you want to permanently delete \(beerToDelete.title!)?", preferredStyle: .ActionSheet)
@@ -86,6 +87,7 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     func cancelDelete(alertAction: UIAlertAction!) {
         beerToDeleteIndexPath = nil
     }
+    // MARK: - Helpers
     
     func getBeerByIndexPath(indexPath: NSIndexPath) -> Beer{
         let beerSet = categories[indexPath.section].beers

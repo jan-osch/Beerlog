@@ -247,10 +247,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="od8-va-9Wc">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type the story of your beer adventure here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="od8-va-9Wc">
                                                     <rect key="frame" x="8" y="8" width="359" height="152"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                                 </textView>
@@ -764,8 +763,8 @@
         <image name="BeerMap" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="UyQ-SS-P3d"/>
         <segue reference="4gs-ZB-WZ7"/>
-        <segue reference="Y4N-Iw-SoH"/>
         <segue reference="hNB-2G-1UY"/>
     </inferredMetricsTieBreakers>
 </document>
