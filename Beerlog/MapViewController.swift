@@ -43,10 +43,9 @@ class MapViewController: UIViewController {
     }
     
     func displayBeerData(){
+        clearMap()
         if let beerToDisplay = self.detailBeer {
-            clearMap()
             mapView?.addAnnotation(BeerAnnotation(beer: beerToDisplay))
-            
         }else{
             let allBeers:[Beer]  = BeerDao.getAllBeers()
             let locationBeers = prepareBeerAnnotations(allBeers)

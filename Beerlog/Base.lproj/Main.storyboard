@@ -149,7 +149,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="352"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIM-pa-MaG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qIM-pa-MaG">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="352"/>
                                                 </imageView>
                                             </subviews>
@@ -159,6 +159,9 @@
                                                 <constraint firstItem="qIM-pa-MaG" firstAttribute="top" secondItem="Ks1-LB-1Nf" secondAttribute="top" id="maB-B4-mne"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" secondItem="qIM-pa-MaG" secondAttribute="height" id="2G8-3w-1zq"/>
+                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CUl-qn-0I2">
                                         <rect key="frame" x="0.0" y="460" width="375" height="44"/>
@@ -524,7 +527,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="82P-J1-dhO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="82P-J1-dhO">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="397"/>
                                                 </imageView>
                                             </subviews>
@@ -763,8 +766,8 @@
         <image name="BeerMap" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UyQ-SS-P3d"/>
         <segue reference="4gs-ZB-WZ7"/>
+        <segue reference="Y4N-Iw-SoH"/>
         <segue reference="hNB-2G-1UY"/>
     </inferredMetricsTieBreakers>
 </document>
