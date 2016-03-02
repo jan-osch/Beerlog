@@ -31,7 +31,6 @@ class BeerListViewController: UIViewController, UITableViewDataSource {
     
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        print("Called number of sections")
         return categories.count
     }
     

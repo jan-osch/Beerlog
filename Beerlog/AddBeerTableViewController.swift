@@ -33,27 +33,35 @@ class AddBeerTableViewController: UITableViewController, UIPickerViewDataSource,
     var categories = [Category]()
     
     func saveBeer() {
+        if previousBeer == nil{
+            saveNewBeer()
+        }else{
+            updateExistingBeer()
+        }
+    }
+    
+    func saveNewBeer(){
         var beerImageData: NSData?
         if mainImageView.image != nil{
             beerImageData = UIImageJPEGRepresentation(mainImageView.image!, 1)
         }
-        if previousBeer == nil{
-            BeerDao.saveBeer(titleTextField.text!,
-                story: descriptionTextField.text!,
-                rating: getValueOfRatingStepper(),
-                category: getCategoryFromPicker(),
-                longitude : coordinate?.longitude,
-                latitude: coordinate?.latitude,
-                imageData: beerImageData)
-        }else{
-            let previousCategory = previousBeer?.beerCategory
-            readDataFromOutlets()
-            if coordinate != nil {
-                previousBeer?.longitude = coordinate?.longitude
-                previousBeer?.latitude = coordinate?.latitude
-            }
-            BeerDao.updateBeer(previousBeer!, previousCategory: previousCategory!)
+        BeerDao.saveBeer(titleTextField.text!,
+            story: descriptionTextField.text!,
+            rating: getValueOfRatingStepper(),
+            category: getCategoryFromPicker(),
+            longitude : coordinate?.longitude,
+            latitude: coordinate?.latitude,
+            imageData: beerImageData)
+    }
+    
+    func updateExistingBeer(){
+        let previousCategory = previousBeer?.beerCategory
+        readDataFromOutlets()
+        if coordinate != nil {
+            previousBeer?.longitude = coordinate?.longitude
+            previousBeer?.latitude = coordinate?.latitude
         }
+        BeerDao.updateBeer(previousBeer!, previousCategory: previousCategory!)
     }
     
     func loadDataFromPreviousBeer(){

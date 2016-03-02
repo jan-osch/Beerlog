@@ -147,18 +147,17 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="352"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6jA-qD-Rko" id="Ks1-LB-1Nf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="351.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="352"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qIM-pa-MaG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIM-pa-MaG">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="352"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="qIM-pa-MaG" secondAttribute="trailing" id="Bzx-p7-wsA"/>
-                                                <constraint firstItem="qIM-pa-MaG" firstAttribute="centerY" secondItem="Ks1-LB-1Nf" secondAttribute="centerY" id="Kxq-jv-uXI"/>
-                                                <constraint firstItem="qIM-pa-MaG" firstAttribute="top" secondItem="Ks1-LB-1Nf" secondAttribute="top" id="P9g-qT-5ep"/>
-                                                <constraint firstItem="qIM-pa-MaG" firstAttribute="leading" secondItem="Ks1-LB-1Nf" secondAttribute="leading" id="er5-c3-IBb"/>
+                                                <constraint firstAttribute="trailing" secondItem="qIM-pa-MaG" secondAttribute="trailing" id="Ygc-ME-oSi"/>
+                                                <constraint firstItem="qIM-pa-MaG" firstAttribute="leading" secondItem="Ks1-LB-1Nf" secondAttribute="leading" id="ce9-wb-mEL"/>
+                                                <constraint firstItem="qIM-pa-MaG" firstAttribute="top" secondItem="Ks1-LB-1Nf" secondAttribute="top" id="maB-B4-mne"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
